@@ -1,0 +1,243 @@
+<!doctype HTML>
+<html>
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-68509416-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-68509416-3');
+</script>
+    
+    
+
+    <title>VoiceID loss</title>
+
+    <link rel="stylesheet" href="stylesheet.css?ver=2"> 
+
+
+   <meta charset="UTF-8"> 
+  </head>
+<body alink="#ff0000" bgcolor="#ffffff" text="#000000" vlink="#760076" link="#0000a3">
+<center>
+<a name="top"></a>
+
+<table width="850">
+<tbody><tr>
+<td>
+<br>
+<table width=850><tr><td align=center>
+
+</td>
+</tr>
+</table>
+<br>
+    
+<div id="shadow" style="padding-right: 10px;">
+<h1> Supplementary Material</h1>
+    <p> <b>Paper</b> : VoiceID: Speech Enhancement for Robust Speaker Recognition [<a href="https://arxiv.org/pdf/1904.03601.pdf" target="_blank">arxiv</a>] </p>
+    <p> <b>Authors</b> : Suwon Shon, Hao Tang, James Glass </p>
+    <p> <b>Abstract</b> : In this paper, we propose VoiceID loss, a novel loss function for training a speech enhancement model to improve the robustness of speaker verification. In contrast to the commonly used loss functions for speech enhancement such as the L2 loss, the VoiceID loss is based on the feedback from a speaker verification model to generate a ratio mask. The generated ratio mask is multiplied  pointwise with the original spectrogram to filter out unnecessary components for speaker verification. In the experiments, we observed that the enhancement network, after training with the VoiceID loss, is able to ignore a substantial amount of time-frequency bins, such as those dominated by noise, for verification. The resulting model consistently improves the speaker verification system on both clean and noisy conditions. </p>
+    
+<h2> System architecture</h2>
+    
+<img src="multimedia/network.png" width=800>
+
+    
+<h2> Audio samples</h2>
+    
+    <iframe width="350" height="220" src="https://www.youtube.com/embed/5r0dWxy17C8?start=261" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <table>
+        <tr>
+            <td align="center"> </td>
+            <td align="center">Eartha Kitt (<a href="https://youtu.be/5r0dWxy17C8?t=261" target="_blank">5r0dWxy17C8-0000016</a>)<br>original file</td>
+            <td align="center">Masked </td>
+            <td align="center">Residue(Degraded-Masked) </td>
+            <td align="center">DAE </td>
+        </tr>
+        <tr>
+            <td align="center"> No additional noise  </td>
+            <td><audio controls=""><source src="multimedia/original/5r0dWxy17C8_0000016.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8_0000016.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8_0000016_differ.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/dae/5r0dWxy17C8_0000016.wav"></audio></td>
+        </tr>
+        <tr><td> <br><br></tr>
+        <tr>
+            <td align="center">Music noise </td>
+            <td align="center">Degraded </td>
+            <td align="center">Masked </td>
+            <td align="center">Residue(Degraded-Masked) </td>
+            <td align="center">DAE </td>
+        </tr>
+        <tr>
+            <td align="center"> SNR 0 </td>
+            <td><audio controls=""><source src="multimedia/original/5r0dWxy17C8-0000016-music_0.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-music_0.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-music_0_differ.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/dae/5r0dWxy17C8-0000016-music_0.wav"></audio></td>
+        </tr>
+        <tr>
+            <td align="center"> SNR 10 </td>
+            <td><audio controls=""><source src="multimedia/original/5r0dWxy17C8-0000016-music_10.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-music_10.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-music_10_differ.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/dae/5r0dWxy17C8-0000016-music_10.wav"></audio></td>
+        </tr>
+        <tr>
+            <td align="center"> SNR 20 </td>
+            <td><audio controls=""><source src="multimedia/original/5r0dWxy17C8-0000016-music_20.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-music_20.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-music_20_differ.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/dae/5r0dWxy17C8-0000016-music_20.wav"></audio></td>
+        </tr>
+        <tr><td> <br><br></tr>
+        <tr>
+            <td align="center">Babble noise </td>
+            <td align="center">Degraded </td>
+            <td align="center">Masked </td>
+            <td align="center">Residue(Degraded-Masked) </td>
+            <td align="center">DAE </td>
+        </tr>
+        <tr>
+            <td align="center"> SNR 0 </td>
+            <td><audio controls=""><source src="multimedia/original/5r0dWxy17C8-0000016-babble_0.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-babble_0.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-babble_0_differ.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/dae/5r0dWxy17C8-0000016-babble_0.wav"></audio></td>
+        </tr>
+        <tr>
+            <td align="center"> SNR 10 </td>
+            <td><audio controls=""><source src="multimedia/original/5r0dWxy17C8-0000016-babble_10.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-babble_10.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-babble_10_differ.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/dae/5r0dWxy17C8-0000016-babble_10.wav"></audio></td>
+        </tr>
+        <tr>
+            <td align="center"> SNR 20 </td>
+            <td><audio controls=""><source src="multimedia/original/5r0dWxy17C8-0000016-babble_20.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-babble_20.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-babble_20_differ.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/dae/5r0dWxy17C8-0000016-babble_20.wav"></audio></td>
+        </tr>
+        <tr><td> <br><br></tr>
+        <tr>
+            <td align="center">Ambient noise </td>
+            <td align="center">Degraded </td>
+            <td align="center">Masked </td>
+            <td align="center">Residue(Degraded-Masked) </td>
+            <td align="center">DAE </td>
+        </tr>
+        <tr>
+            <td align="center"> SNR 0 </td>
+            <td><audio controls=""><source src="multimedia/original/5r0dWxy17C8-0000016-noise_0.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-noise_0.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-noise_0_differ.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/dae/5r0dWxy17C8-0000016-noise_0.wav"></audio></td>
+        </tr>
+        <tr>
+            <td align="center"> SNR 10 </td>
+            <td><audio controls=""><source src="multimedia/original/5r0dWxy17C8-0000016-noise_10.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-noise_10.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-noise_10_differ.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/dae/5r0dWxy17C8-0000016-noise_10.wav"></audio></td>
+        </tr>
+        <tr>
+            <td align="center"> SNR 20 </td>
+            <td><audio controls=""><source src="multimedia/original/5r0dWxy17C8-0000016-noise_20.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-noise_20.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-noise_20_differ.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/dae/5r0dWxy17C8-0000016-noise_20.wav"></audio></td>
+        </tr>
+        <tr><td> <br><br></tr>        
+        <tr>
+            <td align="center">Reverb<br>-eration</td>
+            <td align="center">Degraded </td>
+            <td align="center">Masked </td>
+            <td align="center">Residue(Degraded-Masked) </td>
+            <td align="center">DAE </td>
+        </tr>
+        <tr>
+            <td align="center"> Small room </td>
+            <td><audio controls=""><source src="multimedia/original/5r0dWxy17C8-0000016-reverb.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-reverb.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-reverb_differ.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/dae/5r0dWxy17C8-0000016-reverb.wav"></audio></td>
+        </tr>
+        <tr>
+            <td align="center"> Large room </td>
+            <td><audio controls=""><source src="multimedia/original/5r0dWxy17C8-0000016-reverb_largeroom.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-reverb_largeroom.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/masking/5r0dWxy17C8-0000016-reverb_largeroom_differ.wav"></audio></td>
+            <td><audio controls=""><source src="multimedia/dae/5r0dWxy17C8-0000016-reverb_largeroom.wav"></audio></td>
+        </tr>
+    </table>
+<h2> Spectrogram examples (<a href="./specs_by_epoch.html" target="_blank">see more spectrograms by epochs</a>)</h2>
+    <center>
+    <img src="multimedia/original.png" width=800>
+    <br>&lt;Original&gt;<br>
+    <img src="multimedia/original_music0.png" width=800>
+    <br>&lt;Degraded (Music noise, SNR=0)&gt;<br>
+    <img src="multimedia/dae.png" width=800>
+    <br>&lt;DAE&gt;<br>
+    <img src="multimedia/masked_1232000_music0.png" width=800>
+    <br>&lt;Masked (Degraded*Mask)&gt;<br>
+    <img src="multimedia/mask_1232000_music0.png" width=800>
+    <br>&lt;Mask&gt;<br>
+    <img src="multimedia/residue_1232000_music0.png" width=800>
+    <br>&lt;Residue (Degraded - Masked)&gt;<br>
+    </center>
+    
+    
+    
+    
+</div>
+    
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+
+</body>
+
+
+</html>
+
+  

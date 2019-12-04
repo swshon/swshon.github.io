@@ -1,0 +1,172 @@
+<!doctype HTML>
+<html>
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <title>MCE Challenge</title>
+
+    <link rel="stylesheet" href="stylesheet.css"> 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119037479-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119037479-1');
+</script>
+
+   <meta charset="UTF-8"> 
+  </head>
+<body alink="#ff0000" bgcolor="#ffffff" text="#000000" vlink="#760076" link="#0000a3">
+<center>
+<a name="top"></a>
+
+<table width="650">
+<tbody><tr>
+<td>
+<br>
+<table width=720><tr><td align=center>
+<table class="deadlines" border="0" cellpadding="5" rules="groups" style="border-spacing:5px 0px">
+<tbody><tr><td> <img src="img/icdm-logo.png" alt="mitlogo" width=250></td><td align="right"><img src="img/csail_.png" alt="mitlogo" width=70></td><td align="left"><img src="img/csail-text.png" alt="mitlogo" width=300></td><td><img src="img/ll-logo.png" alt="mitlogo" width=150></td></tr></tbody>
+</table>
+</td>
+</tr>
+</table>
+<br>
+    
+<div id="shadow">
+<table cellpadding="10" width=750>
+<tr>
+<td>
+<table cellpadding = "1" width=750>
+<tr><td align="top"><center><h1><i>MCE 2018: </i></h1></center></td></tr>
+<tr><td align="top"><center><h1>The 1st Multi-target speaker detection and </h1></center></td></tr>
+<tr><td align="top"><center><h1>identification Challenge Evaluation</h1></center></td></tr>
+
+</table>
+</td>
+</tr>
+</table>
+</div>
+<br><br>
+
+
+
+
+
+
+
+
+
+
+<a name="purpose"></a>
+
+<h3>Overview</h3>
+
+<p>The Multitarget Challenge aims to assess how well current speech technology is able to determine whether or not a recorded utterance was spoken by one of a large number of "blacklisted" speakers [1]. It is a form of multi-target speaker detection based on real-world telephone conversations. Data recordings are generated from call center customer-agent conversations. Each conversation is represented by a single i-vector [2]. Given a pool of training and development data from non-Blacklist and Blacklist speakers, the task is to measure how accurately one can detect 1) whether a test recording is spoken by a Blacklist speaker, and 2) which specific Blacklist speaker was talking. </p>
+<h3>Task and Baseline</h3>
+
+    <p>Although the original signal is from the acoustic signal, no prior knowledge on speech processing is needed because each acoustic waveform represented in a 600-dimensional vector which is called i-vector. We used Kaldi recipe <a href="https://github.com/kaldi-asr/kaldi/tree/master/egs/sre10/v2">(egs/sre10/v2)</a> to train i-vector extractor and extracting i-vector. 13,000 hours of unlabeled speech are used to train the i-vector extractor. We provide i-vectors from 41,845 utterances for the training set and 8,631 utterances for development set. For evaluation, we will release test set i-vector from 16,017 utterances. The challenge will measure system's performance using this test set. Same blacklist speakers appear in all three sets, but background speakers appeared in a different set can be regarded as different speaker.</p>
+    <p align=center><img src="img/multitarget_baseline.png" width=500><br><i> Baseline multi-target detector system [2]</i></p>
+    <p> The baseline system is from the multi-target detector in [2]. From each multi-target detector scores of the input, we can have the rank of the scores and accept top-k hypotheses. If <i>k</i> is S, the system became top-S detector which only cares about input is from blacklist cohort or not. If <i>k</i> is 1, the system became top-1 detector and it not only care about the input is from blacklist cohort, but also need to identify which blacklist speaker is spoken among the blacklist cohort. The performance will be measured in terms of Equal Error Rate (EER) on both Top-S and Top-1 detector. For more detailed information and how to measure performance, you can find at <a href="mce2018_plan_v1.pdf">MCE 2018 Plan</a></p>
+
+    <p>In order to make all participants starting from the same baseline, we prepared baseline example here: <a href="https://github.com/swshon/multi-speakerID" target="new">https://github.com/swshon/multi-speakerID</a><br>
+        In the baseline, we use a train set for training detectors and test on the development set. The result shows Top-S detector EER is 1.54% and Top-1 detector EER is 13.99%.        
+    </p>
+    
+<p> 
+    
+
+    
+    
+<h3>Instructions</h3>
+<p>
+<ol>
+    <li><b>Fill the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdP6-nTALjURMf-ofCFlbhoYxs41Ctp_JKzWqBIauAWOPHeeg/viewform">form</a></b> to register</li>
+    
+    <li>After registration, participant will receive a confirmation email with a <b>unique team id and dataset link</b></li>
+    
+    <li><b>Submit result and system description document</b> before deadline.</li>
+    <ul>
+        <li>Check file format and follow the instruction in the plan 
+       <li>Submit files to <a href="mailto:mce@lists.csail.mit.edu">mce@lists.csail.mit.edu</a></li>
+        <li>System Description document should cover system's componenets including their approaches and algorithms and their configuration, parameters.</li>
+        <li>Submission without system description will not be counted in rankings and awards.
+    </ul>
+    
+    <li><b>The evaluation rankings</b> will be revealed at the end of the challenge.</li>
+    <ul>
+        <li>The ranking will be announced anonymously with unique team id (digits). <i>*No real affiliation or company name*</i> will be disclosed</li>
+        <li>All ranking will be sorted by *primiary* submission.</li>
+    </ul>
+    
+    <li> Regardness of the submission, we will relase evaluation dataset key for additional experiement and foundings shortly after submission deadline. We strongly recommned to participants to submit their works and findings in ICASSP 2019
+        
+
+</ol>
+</p>
+
+
+
+
+<h3>Timeline</h3>
+
+<table width=720><tr><td align=center>
+<table class="deadlines" border="0" cellpadding="5" rules="groups" style="border-spacing:5px 0px">
+<tbody><tr><td align="right">May 21, 2018</td><td>Development dataset release</td></tr></tbody>
+<tbody><tr><td align="right">September 10, 2018</td><td>Evaluation dataset release</td></tr></tbody>
+<tbody><tr><td align="right">September 17, 2018</td><td>Submission deadline for evaluation</td></tr></tbody>
+<tbody><tr><td align="right">September 21, 2018</td><td>Release evaluation datset key</td></tr></tbody>
+<tbody><tr><td align="right">October 10, 2018</td><td>Result announcement (Rankings)</td></tr></tbody>
+<tbody><tr><td align="right">October 29, 2018</td><td>(Recommend) Submit your findings to ICASSP 2019 Regular paper</td></tr></tbody>
+<tbody><tr><td align="right">November, 2018</td><td>Awards presentation at the IEEE ICDM 2018 in Singapore</td></tr></tbody>
+</table>
+</td>
+</tr>
+</table>
+
+
+
+
+
+
+<h3>Organisers</h3>
+<a name="organizers"></a>
+<b>Suwon Shon</b>,   MIT Computer Science and Artificial Intelligence Lab., USA<br> 
+<b>Douglas Reynolds</b>,   MIT Lincoln Lab., USA <br>
+<b>James Glass</b>,   MIT Computer Science and Artificial Intelligence Lab., USA <br>
+
+<h3>Contact</h3>
+<p>
+For any questions to organizers, please send to: <a href="mailto:mce@lists.csail.mit.edu">mce@lists.csail.mit.edu</a><br>
+Please join Google Group for general announcements and open discussions<br>
+Google Group E-mail: <a href="mailto:mce-2018@googlegroups.com">mce-2018@googlegroups.com</a><br>
+Google Group: <a href="https://groups.google.com/forum/#!forum/mce-2018">https://groups.google.com/forum/#!forum/mce-2018</a><br>
+</p>
+
+    
+<h3>References</h3>
+
+<p>
+    [1] E. Singer and D. Reynolds, “Analysis of Multitarget Detection for Speaker and Language Recognition,” in ODYSSEY The Speaker and Language Recognition Workshop, 2004, no. 4, pp. 301–308.<br>
+    [2] N. Dehak, P. J. Kenny, R. Dehak, P. Dumouchel, and P. Ouellet, “Front-End Factor Analysis for Speaker Verification,” IEEE Trans. Audio, Speech, Lang. Process., vol. 19, no. 4, pp. 788–798, May 2011.</p>
+
+    
+    
+</td>
+</tr>
+</tbody></table>
+</center>
+
+
+
+
+</body>
+
+
+</html>
+
+  
+
